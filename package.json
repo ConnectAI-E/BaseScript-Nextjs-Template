@@ -1,0 +1,28 @@
+{
+  "name": "Nextjs Template",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --port 3000 --hostname 0.0.0.0",
+    "build": "next build",
+    "start": "next start --port 3000 --hostname 0.0.0.0",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@base-open/web-api": "https://lf3-static.bytednsdoc.com/obj/eden-cn/nuptlgbpx/@base-open/web-api/base-open-web-api-0.1.6-alpha.9.tgz",
+    "@douyinfe/semi-foundation": "^2.38.2",
+    "@douyinfe/semi-ui": "^2.38.2",
+    "next": "^13.4.9",
+    "react": "^18.2.0",
+    "react-dom": "18.2.0",
+    "reset-css": "^5.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "20.4.0",
+    "@types/react": "^18.2.14",
+    "@types/react-dom": "^18.2.6",
+    "eslint": "^8.44.0",
+    "eslint-config-next": "^13.4.9",
+    "typescript": "^5.1.6"
+  }
+}
