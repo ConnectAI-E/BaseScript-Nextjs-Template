@@ -1,5 +1,5 @@
 'use client'
-import { bitable, TableMeta } from "@base-open/web-api";
+import { TableMeta } from "@base-open/web-api";
 import { Button, Form } from '@douyinfe/semi-ui';
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { BaseFormApi } from '@douyinfe/semi-foundation/lib/es/form/interface';
@@ -7,22 +7,30 @@ import styles from './index.module.css';
 
 export default function App() {
   const [tableMetaList, setTableMetaList] = useState<TableMeta[]>();
+  const [bitable, setBitable] = useState<any>();
+  useEffect(() => {
+    import('@base-open/web-api').then(res => {
+      setBitable(res.bitable);
+    })
+  }, []);
   const formApi = useRef<BaseFormApi>();
   const addRecord = useCallback(async ({ table: tableId }: { table: string }) => {
-    if (tableId) {
+    if (bitable && tableId) {
       const table = await bitable.base.getTableById(tableId);
       table.addRecord({
         fields: {},
       });
     }
-  }, []);
+  }, [bitable]);
   useEffect(() => {
-    Promise.all([bitable.base.getTableMetaList(), bitable.base.getSelection()])
-      .then(([metaList, selection]) => {
-        setTableMetaList(metaList);
-        formApi.current?.setValues({ table: selection.tableId });
-      });
-  }, []);
+    if (bitable) {
+      Promise.all([bitable.base.getTableMetaList(), bitable.base.getSelection()])
+        .then(([metaList, selection]) => {
+          setTableMetaList(metaList);
+          formApi.current?.setValues({ table: selection.tableId });
+        });
+    }
+  }, [bitable]);
 
   return (
     <main className={styles.main}>
@@ -32,7 +40,7 @@ export default function App() {
       <Form labelPosition='top' onSubmit={addRecord} getFormApi={(baseFormApi: BaseFormApi) => formApi.current = baseFormApi}>
         <Form.Slot label="Development guide">
           <div>
-            <a href="https://bytedance.feishu.cn/docx/VxhudDXbyo1V7jxAcTbctJQ5nvc" target="_blank"
+            <a href="https://lark-technologies.larksuite.com/docx/HvCbdSzXNowzMmxWgXsuB2Ngs7d" target="_blank"
               rel="noopener noreferrer">
               Base Extension Scripts Guide
             </a>
@@ -45,7 +53,7 @@ export default function App() {
         </Form.Slot>
         <Form.Slot label="API">
           <div>
-            <a href="https://bytedance.feishu.cn/docx/OPatd1tBZoWogFxKKtmcBZMxnle" target="_blank"
+            <a href="https://lark-technologies.larksuite.com/docx/Y6IcdywRXoTYSOxKwWvuLK09sFe" target="_blank"
               rel="noopener noreferrer">
               Base Extension Scripts Front-end API
             </a>
