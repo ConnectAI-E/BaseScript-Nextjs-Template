@@ -1,11 +1,19 @@
-# Getting Started
-- Hit run
-- Edit [index.tsx](#pages/App/index.tsx) and watch it live update!
 
-# Learn More
+## Nextjs-Template [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/connectai-e/awesome-basescript)
 
-You can learn more in the [Base Extension Development Guide](https://bytedance.feishu.cn/docx/VxhudDXbyo1V7jxAcTbctJQ5nvc) or [多维表格扩展脚本开发指南](https://bytedance.feishu.cn/docx/HazFdSHH9ofRGKx8424cwzLlnZc).
+> Nextjs模版
 
-## Install packages
+![image](https://github.com/ConnectAI-E/BaseScript-Nextjs-Template/assets/110169811/15b53f4c-32c5-4bbf-a8a1-eca75bc3f3be)
 
-Install packages in Shell pane or search and add in Packages pane.
+
+### Getting Started
+
+1️⃣ clone deme
+```
+git clone https://github.com/ConnectAI-E/BaseScript-Nextjs-Template
+pnpm install
+pnpm dev
+```
+2️⃣ 复制 http://localhost:5173/ 到 多维表格 webview 地址
+
+
