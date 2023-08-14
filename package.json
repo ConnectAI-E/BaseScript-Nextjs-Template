@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@base-open/web-api": "https://lf3-static.bytednsdoc.com/obj/eden-cn/jjjpceh7nulojvhj/base-open-web-api-0.2.0-alpha.11.tgz",
+    "@base-open/web-api": "https://lf9-static.bytednsdoc.com/obj/eden-cn/jjjpceh7nulojvhj/@base-open-web-api-0.2.0-alpha.18.tgz",
     "@douyinfe/semi-foundation": "^2.38.2",
     "@douyinfe/semi-ui": "^2.38.2",
     "next": "^13.4.9",

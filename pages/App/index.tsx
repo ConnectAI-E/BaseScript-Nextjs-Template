@@ -1,5 +1,5 @@
 'use client'
-import { TableMeta } from "@base-open/web-api";
+import { bitable, TableMeta } from "@base-open/web-api";
 import { Button, Form } from '@douyinfe/semi-ui';
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { BaseFormApi } from '@douyinfe/semi-foundation/lib/es/form/interface';
@@ -7,30 +7,22 @@ import styles from './index.module.css';
 
 export default function App() {
   const [tableMetaList, setTableMetaList] = useState<TableMeta[]>();
-  const [bitable, setBitable] = useState<any>();
-  useEffect(() => {
-    import('@base-open/web-api').then(res => {
-      setBitable(res.bitable);
-    })
-  }, []);
   const formApi = useRef<BaseFormApi>();
   const addRecord = useCallback(async ({ table: tableId }: { table: string }) => {
-    if (bitable && tableId) {
+    if (tableId) {
       const table = await bitable.base.getTableById(tableId);
       table.addRecord({
         fields: {},
       });
     }
-  }, [bitable]);
+  }, []);
   useEffect(() => {
-    if (bitable) {
-      Promise.all([bitable.base.getTableMetaList(), bitable.base.getSelection()])
-        .then(([metaList, selection]) => {
-          setTableMetaList(metaList);
-          formApi.current?.setValues({ table: selection.tableId });
-        });
-    }
-  }, [bitable]);
+    Promise.all([bitable.base.getTableMetaList(), bitable.base.getSelection()])
+      .then(([metaList, selection]) => {
+        setTableMetaList(metaList);
+        formApi.current?.setValues({ table: selection.tableId });
+      });
+  }, []);
 
   return (
     <main className={styles.main}>
